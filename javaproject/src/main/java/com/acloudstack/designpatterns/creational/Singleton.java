@@ -1,4 +1,4 @@
-package com.acloudstack.javadesignpatterns.creational;
+package com.acloudstack.designpatterns.creational;
 
 public class Singleton {
 	

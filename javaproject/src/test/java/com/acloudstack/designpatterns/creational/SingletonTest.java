@@ -1,4 +1,4 @@
-package com.acloudstack.javadesignpatterns.creational;
+package com.acloudstack.designpatterns.creational;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertEquals;
@@ -36,8 +36,7 @@ public class SingletonTest {
 	@Test
     public void testSingletonInstanceThreadSafe() {
 		int threadsCount = 50;
-		Set<Singleton> singletonSet = Collections.newSetFromMap(new ConcurrentHashMap<Singleton, Boolean>());
-		
+		Set<Singleton> singletonSet = Collections.newSetFromMap(new ConcurrentHashMap<Singleton, Boolean>());		
 		try {
 			ExecutorService executorService = Executors.newFixedThreadPool(threadsCount);
 		    for (int i = 0; i < threadsCount; i++) {
@@ -53,7 +52,6 @@ public class SingletonTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	    assertEquals(1, singletonSet.size());
     }
 }
