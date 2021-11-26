@@ -1,0 +1,9 @@
+@startuml
+class Singleton {
+- Singleton()
++ getInstance(): Singleton
+}
+Singleton --> "0..1" Singleton : -instance
+
+
+@enduml

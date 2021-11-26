@@ -1,0 +1,19 @@
+@startuml
+participant SingletonTest
+activate SingletonTest
+
+SingletonTest -> Singleton: getInstance(): Singleton
+activate Singleton
+
+Singleton -> SingletonTest: Singleton
+deactivate Singleton
+
+SingletonTest -> Singleton: getInstance(): Singleton
+activate Singleton
+
+Singleton -> SingletonTest: Singleton
+deactivate Singleton
+
+SingletonTest -> SingletonTest: check whether the same instance obtained
+deactivate SingletonTest
+@enduml
