@@ -2,29 +2,41 @@ package com.acloudstack.designprinciples.solid.lsp.before;
 
 public class Square extends Rectangle{
 	
-	private int side;
-	
 	Square(){
-		initialize(0);
+		super();
 	}
 	
-	void initialize(int side) {
-		this.side = side;
+	Square(int s){
+		setSide(s);
 	}
 	
-	void setWidth(int width) {
-		this.side = width;
+	@Override
+	public void setWidth(int w) {
+		setSide(w);
 	}
 	
-	int getWidth() {
-		return this.side;
+	@Override
+	public void setHeight(int h) {
+		setSide(h);
 	}
 	
-	void setLength(int length) {
-		this.side = length;
+	@Override
+	public int getWidth() {
+		return super.getWidth();
 	}
 	
-	int getLength() {
-		return this.side;
+	@Override
+	public int getHeight() {
+		return super.getHeight();
+	}
+	
+	@Override
+	public int computeArea() {
+		return (super.getWidth())*(super.getHeight());
+	}
+	
+	private void setSide(int s) {
+		super.setWidth(s);
+		super.setHeight(s);
 	}
 }

@@ -1,39 +1,40 @@
+// SOLID - Liskov Substitution Principle
+//	We should be able to substitute base class objects with derived class object and
+//	this should not alter characteristics/behavior of the program
+
 package com.acloudstack.designprinciples.solid.lsp.before;
 
-public class Rectangle {
+public class Rectangle{
 	private int width;
-	private int length;
+	private int height;
 	
 	Rectangle(){
-		initialize(0, 0);
+		this.width = 0;
+		this.height = 0;
 	}
 	
-	Rectangle(int width, int length){
-		initialize(width, length);
+	Rectangle(int w, int h){
+		this.width = w;
+		this.height = h;
 	}
 	
-	void initialize(int width, int length) {
-		width = width;
-		length = length;
+	public void setWidth(int w) {
+		this.width = w;
 	}
 	
-	void setWidth(int width) {
-		this.width = width;
+	public void setHeight(int h) {
+		this.height = h;
 	}
 	
-	int getWidth() {
+	public int getWidth() {
 		return this.width;
 	}
 	
-	void setLength(int length) {
-		this.length = length;
+	public int getHeight() {
+		return this.height;		
 	}
 	
-	int getLength() {
-		return this.length;
-	}
-	
-	int getArea() {
-		return this.width*this.length;
+	public int computeArea() {
+		return (this.width)*(this.height);
 	}
 }

@@ -1,4 +1,4 @@
-package com.acloudstack.designpatterns.creational;
+package com.acloudstack.designpatterns.creational.singleton;
 
 public class Singleton {
 	
@@ -44,7 +44,7 @@ public class Singleton {
 		//System.out.println("Singleton private constructor");
 	}
 	
-	synchronized public static Singleton getInstance() {
+	public static synchronized Singleton getInstance() {
 		if(instance == null) {
 			instance = new Singleton();
 		}

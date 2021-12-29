@@ -1,4 +1,4 @@
-package com.acloudstack.designpatterns.creational;
+package com.acloudstack.designpatterns.creational.singleton;
 
 import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertEquals;
@@ -14,16 +14,18 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.acloudstack.designpatterns.creational.singleton.Singleton;
+
 public class SingletonTest {
 	
 	@BeforeClass
     public static void setup() {
-        System.out.println("Ran the before");
+        System.out.println("SingletonTest - setup");
     }
 
     @AfterClass
     public static void teardown() {
-        System.out.println("Ran the after");
+        System.out.println("SingletonTest - teardown");
     }
     
 	@Test
