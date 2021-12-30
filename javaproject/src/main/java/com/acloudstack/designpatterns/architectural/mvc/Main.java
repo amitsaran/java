@@ -7,8 +7,7 @@ public class Main {
 		View v = new View();
 		Controller c = new Controller(m, v);
 		
-		c.updateView();
-		
+		c.updateView();		
 		c.setModelData(1);
 		c.updateView();
 		
