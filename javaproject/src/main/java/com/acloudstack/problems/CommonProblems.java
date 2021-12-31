@@ -138,13 +138,11 @@ public class CommonProblems {
     		int compare = b.getValue().compareTo(a.getValue());
     		compare = (compare == 0)? a.getKey().compareTo(b.getKey()):compare;
     		return compare;
-    	});
-    	
+    	});    	
     	for(Map.Entry<Integer, Integer> e : l) {
     		List<Integer> val = new ArrayList<Integer>(Arrays.asList(new Integer[] {e.getKey(), e.getValue()}));
     		sortedList.add(val);
     	}    	
-    	
     	return sortedList;
     }    
 }
