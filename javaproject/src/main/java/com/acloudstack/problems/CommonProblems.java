@@ -1,7 +1,13 @@
 package com.acloudstack.problems;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 public class CommonProblems {
 
@@ -12,7 +18,17 @@ public class CommonProblems {
         System.out.println("TwoSum result is: " + result[0] + ", " + result[1]);
         System.out.println("876 in roman is " + intToRoman(876));
         System.out.println("3000 in roman is " + intToRoman(3000));
-        System.out.println("fizzBuzz for 15 is " + fizzBuzz(15));        
+        System.out.println("fizzBuzz for 15 is " + fizzBuzz(15));
+        
+        List<Integer> l = new ArrayList<Integer>();
+        l.add(3); l.add(3); l.add(1); l.add(2); l.add(1);
+        List<List<Integer>> sortedList = groupSort(l);        
+        for(List<Integer> val : sortedList) {        	
+        	for(Integer i : val) {
+        		System.out.print("" + i + " ");
+        	}
+        	System.out.print("\n");
+        }
     }
     
 	// 1.
@@ -99,7 +115,36 @@ public class CommonProblems {
     	return str;
     }
     
-    // design stack, queue, hashset
+    // 10.
+    // implement stack - push, pop, peek
     
+    // 11. 
+    // implement queue - enqueue, dequeue, peek
     
+    // 12. 
+    // implement hashset - add, remove, contains
+    
+    // 13.
+    public static List<List<Integer>> groupSort(List<Integer> arr) {
+    	List<List<Integer>> sortedList = new ArrayList<List<Integer>>();
+    	// create map
+    	Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+    	for(int i : arr) {
+    		map.put(i, map.containsKey(i)?map.get(i)+1:1);
+    	}    	
+    	// sort 1. reverse on values then 2. based on the keys
+    	List<Map.Entry<Integer, Integer>> l = new ArrayList<>(map.entrySet());
+    	l.sort((Map.Entry<Integer, Integer> a, Map.Entry<Integer, Integer> b) -> {
+    		int compare = b.getValue().compareTo(a.getValue());
+    		compare = (compare == 0)? a.getKey().compareTo(b.getKey()):compare;
+    		return compare;
+    	});
+    	
+    	for(Map.Entry<Integer, Integer> e : l) {
+    		List<Integer> val = new ArrayList<Integer>(Arrays.asList(new Integer[] {e.getKey(), e.getValue()}));
+    		sortedList.add(val);
+    	}    	
+    	
+    	return sortedList;
+    }    
 }
